@@ -1,0 +1,19 @@
+{
+  "name": "story-prompt-bot",
+  "version": "1.0.0",
+  "description": "A bot that tweets story prompts",
+  "main": "bot.js",
+  "scripts": {
+    "start": "node bot.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "story",
+    "prompt"
+  ],
+  "author": "Nic Foley",
+  "license": "ISC",
+  "dependencies": {
+    "twit": "^2.2.11"
+  }
+}

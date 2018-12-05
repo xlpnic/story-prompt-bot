@@ -1,0 +1,7 @@
+
+node_modules/*
+
+# Secret Stuff
+*.nic.txt
+*.nic.xml
+*.nic.js
