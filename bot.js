@@ -9,7 +9,7 @@ var T = new Twit(config);
 //
 //  tweet 'hello world!'
 //
-var tweet = { status: 'hello world!' };
+var tweet = { status: 'Here is a robot face: 🤖' };
 
 T.post('statuses/update', tweet, tweetResponse)
 
@@ -20,6 +20,6 @@ function tweetResponse(err, data, response) {
     }
     else{
         console.log("Tweet tweeted!");
-        console.log(data)
+        console.log("Tweet: " + data.text)
     }
   };
