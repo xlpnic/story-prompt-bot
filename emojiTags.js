@@ -1,3 +1,5 @@
 module.exports = {
-    emotions: "<EMO>"
+    varationAvailable: "<VAR>",
+    emotions: "<EMO>",
+    lovehearts: "<LOV>"
 };

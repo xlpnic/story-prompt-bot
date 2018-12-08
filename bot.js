@@ -26,17 +26,44 @@ function randomItemPicker(itemArray){
     return chosenItem;
 }
 
-function getUniqueEmoji(textToAnalyse, tagToReplace){
+function getArrayForTag(emojiTag){
     var arrayToUse = [];
-    if (tagToReplace == "<EMO>"){
-        arrayToUse = emojis.emotions.faces;
-    }
+
+    switch(emojiTag) {
+        case emojiTags.emotions:
+        arrayToUse = emojis.emotions;
+          break;
+        case emojiTags.lovehearts:
+        arrayToUse = emojis.lovehearts;
+          break;
+        default:
+        arrayToUse = emojis.emotions;
+      }
+
+      return arrayToUse;
+}
+
+function getEmojiVariation(emojiWithVariations){
+    var emojiWithoutVariationTag = emojiWithVariations.replace(emojiTags.varationAvailable, "");
+    var stringLength = emojiWithoutVariationTag.length;
+    var emojiTag = emojiWithoutVariationTag.substring(stringLength-5, stringLength);
+    var variations = getArrayForTag(emojiTag);
+    chosenEmojiVariation = randomItemPicker(variations);
+    return chosenEmojiVariation;
+}
+
+function getUniqueEmoji(textToAnalyse, tagToReplace){
+    var arrayToUse = getArrayForTag(tagToReplace);
 
     var uniqueEmojiFound = false;
     var chosenEmoji = "";
 
     while(!uniqueEmojiFound){
         chosenEmoji = randomItemPicker(arrayToUse);
+        if (chosenEmoji.includes(emojiTags.varationAvailable)){
+            chosenEmoji = getEmojiVariation(chosenEmoji);
+        }
+
         if (!textToAnalyse.includes(chosenEmoji)){
             uniqueEmojiFound = true;
         }
