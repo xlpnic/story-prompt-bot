@@ -3,6 +3,7 @@ var config = require('./config.nic');
 var emojis = require('./emojis');
 var structures = require('./structures');
 var emojiTags = require('./emojiTags');
+var common = require('./common');
 
 var T = new Twit(config);
 
@@ -16,13 +17,6 @@ function tweetResponse(err, data, response) {
         console.log("Tweet: " + data.text)
     }
 };
-
-function randomItemPicker(itemArray){
-    var numOfItems = itemArray.length;
-    var chosenItemIndex = Math.floor(Math.random() * Math.floor(numOfItems));
-    var chosenItem = itemArray[chosenItemIndex];
-    return chosenItem;
-}
 
 function getArrayForTag(emojiTag){
     var arrayToUse = [];
@@ -97,7 +91,7 @@ function getEmojiVariation(emojiWithVariations){
     var stringLength = emojiWithoutVariationTag.length;
     var emojiTag = emojiWithoutVariationTag.substring(stringLength-5, stringLength);
     var variations = getArrayForTag(emojiTag);
-    chosenEmojiVariation = randomItemPicker(variations);
+    chosenEmojiVariation = common.randomItemPicker(variations);
     return chosenEmojiVariation;
 }
 
@@ -108,7 +102,7 @@ function getUniqueEmoji(textToAnalyse, tagToReplace){
     var chosenEmoji = "";
 
     while(!uniqueEmojiFound){
-        chosenEmoji = randomItemPicker(arrayToUse);
+        chosenEmoji = common.randomItemPicker(arrayToUse);
         if (chosenEmoji.includes(emojiTags.varationAvailable)){
             chosenEmoji = getEmojiVariation(chosenEmoji);
         }
@@ -139,7 +133,7 @@ function constructTweet(){
     // TODO: Instead of exposing a collection of pre-formatted structures, 
     // should expose a function getRandomlyGeneratedStructure() instead.
     // That way, the elements inside a structure can be randomised.
-    var chosenTweetStructure = randomItemPicker(structures);
+    var chosenTweetStructure = common.randomItemPicker(structures);
     var tweetText = generateTweetText(chosenTweetStructure);
     var constructedTweet = { status: tweetText }
     return constructedTweet;
@@ -149,7 +143,8 @@ function run(){
     console.log('The bot is starting');
 
     try{
-        // Remember: Don't tweet the same tweet twice in a row! Or twitter gets angry.
+        // Remember: Don't tweet the same tweet twice in a row!
+        // Or twitter gets angry.
         var tweet = constructTweet();
         
         var proposedTweetLength = tweet.status.length;
