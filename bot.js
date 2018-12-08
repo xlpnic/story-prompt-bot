@@ -136,7 +136,7 @@ function generateTweetText(structure){
 }
 
 function constructTweet(){
-    //TODO: Instead of exposing a collection of pre-formatted structures, 
+    // TODO: Instead of exposing a collection of pre-formatted structures, 
     // should expose a function getRandomlyGeneratedStructure() instead.
     // That way, the elements inside a structure can be randomised.
     var chosenTweetStructure = randomItemPicker(structures);
