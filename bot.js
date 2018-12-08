@@ -3,7 +3,8 @@ console.log('The bot is starting');
 var Twit = require('twit');
 var config = require('./config.nic');
 var emojis = require('./emojis');
-var structures = require('./structures').default;
+var structures = require('./structures');
+var emojiTags = require('./emojiTags');
 
 var T = new Twit(config);
 
@@ -25,13 +26,42 @@ function randomItemPicker(itemArray){
     return chosenItem;
 }
 
+function getUniqueEmoji(textToAnalyse, tagToReplace){
+    var arrayToUse = [];
+    if (tagToReplace == "<EMO>"){
+        arrayToUse = emojis.emotions.faces;
+    }
+
+    var uniqueEmojiFound = false;
+    var chosenEmoji = "";
+
+    while(!uniqueEmojiFound){
+        chosenEmoji = randomItemPicker(arrayToUse);
+        if (!textToAnalyse.includes(chosenEmoji)){
+            uniqueEmojiFound = true;
+        }
+    }
+
+    return chosenEmoji;
+}
+
 function generateTweetText(structure){
-    var chosenEmoji = randomItemPicker(emojis.emotions.faces)
-    return structure.text + chosenEmoji;
+    var tweetText = structure.text;
+    //var tags = ["<EMO>"];
+    var tags = Object.values(emojiTags);
+
+    tags.forEach(tag => {
+        while(tweetText.includes(tag)){
+            var uniqueEmoji = getUniqueEmoji(tweetText, tag);
+            tweetText = tweetText.replace(tag, uniqueEmoji);
+        }
+    });
+
+    return tweetText;
 }
 
 function constructTweet(){
-    var chosenTweetStructure = randomItemPicker(structures.structures);
+    var chosenTweetStructure = randomItemPicker(structures);
     var tweetText = generateTweetText(chosenTweetStructure);
     var constructedTweet = { status: tweetText }
     return constructedTweet;
