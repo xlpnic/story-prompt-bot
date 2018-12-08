@@ -1,5 +1,3 @@
-console.log('The bot is starting');
-
 var Twit = require('twit');
 var config = require('./config.nic');
 var emojis = require('./emojis');
@@ -30,12 +28,63 @@ function getArrayForTag(emojiTag){
     var arrayToUse = [];
 
     switch(emojiTag) {
+        case emojiTags.actionsAndBodyParts:
+            arrayToUse = emojis.actionsAndBodyParts;
+            break;
+        case emojiTags.animals:
+            arrayToUse = emojis.animals;
+            break;
+        case emojiTags.astronomical:
+            arrayToUse = emojis.astronomical;
+            break;
+        case emojiTags.countryFlags:
+            arrayToUse = emojis.countryFlags;
+            break;            
+        case emojiTags.creatures:
+            arrayToUse = emojis.creatures;
+            break;
+        case emojiTags.drinks:
+            arrayToUse = emojis.drinks;
+            break;
         case emojiTags.emotions:
-        arrayToUse = emojis.emotions;
-          break;
+            arrayToUse = emojis.emotions;
+            break;
+        case emojiTags.food:
+            arrayToUse = emojis.food;
+            break;     
+            case emojiTags.groupsOfPeople:
+            arrayToUse = emojis.groupsOfPeople;
+            break;
+        case emojiTags.humans:
+            arrayToUse = emojis.humans;
+            break;
+        case emojiTags.locations:
+            arrayToUse = emojis.locations;
+            break;
         case emojiTags.lovehearts:
-        arrayToUse = emojis.lovehearts;
-          break;
+            arrayToUse = emojis.lovehearts;
+            break;            
+        case emojiTags.objects:
+            arrayToUse = emojis.objects;
+            break;
+        case emojiTags.plants:
+            arrayToUse = emojis.plants;
+            break;
+        case emojiTags.sportsAndActivities:
+            arrayToUse = emojis.sportsAndActivities;
+            break;
+        case emojiTags.symbols:
+            arrayToUse = emojis.symbols;
+            break;                     
+            case emojiTags.time:
+            arrayToUse = emojis.times;
+            break;
+        case emojiTags.transportation:
+            arrayToUse = emojis.transportation;
+            break;
+        case emojiTags.weather:
+            arrayToUse = emojis.weather;
+            break;                                   
         default:
         arrayToUse = emojis.emotions;
       }
@@ -94,6 +143,8 @@ function constructTweet(){
 }
 
 function run(){
+    console.log('The bot is starting');
+
     try{
         // Don't tweet the same tweet twice in a row! Or twitter gets angry.
         var tweet = constructTweet();
