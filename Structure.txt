@@ -1,7 +1,7 @@
 Story Prompt!
 
 Title
-"The (object) of (location)"
+"The (object) of the (location)"
 "(persons)'s (object)"
 
 Characters
@@ -53,3 +53,12 @@ Sidekick
 
 Secret Handshake
 👊-👍-👌-👉-🖐
+
+==================
+
+Setting Prompt!
+
+Location
+Weather
+Time Of Day
+Ruler

@@ -148,6 +148,11 @@ function run(){
     try{
         // Don't tweet the same tweet twice in a row! Or twitter gets angry.
         var tweet = constructTweet();
+        
+        var proposedTweetLength = tweet.status.length;
+        if(proposedTweetLength > 280){
+            throw "Tweet would be too long! Tweet length: " + proposedTweetLength;
+        }
 
         T.post('statuses/update', tweet, tweetResponse)
     }
