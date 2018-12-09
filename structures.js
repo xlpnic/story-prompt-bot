@@ -1,23 +1,7 @@
 var common = require('./common');
 var emojiTags = require('./emojiTags');
 
-var StoryPrompt1 = {
-    text: "Story Prompt!" + 
-    "\n==========" + 
-    "\nTitle: \"The " + emojiTags.objects + " of the " + emojiTags.locations + "\"" +
-    "\n\nCharacters: " + 
-    "\n" + emojiTags.humans + " " + emojiTags.humans + " " + emojiTags.humans + 
-    "\n\nPlot - Act 1:" + 
-    "\n" + emojiTags.sportsAndActivities + " " + emojiTags.locations + " " + emojiTags.emotions +  
-    "\n\nPlot - Act 2:" + 
-    "\n" + emojiTags.objects + " " + emojiTags.locations + " " + emojiTags.emotions + 
-    "\n\nPlot - Act 3:" + 
-    "\n" + emojiTags.transportation + " " + emojiTags.locations + " " + emojiTags.emotions + 
-    "\n\nPlot Twist:" +
-    "\nThe " + emojiTags.objects + " was a " + emojiTags.animals + " all along!"
-};
-
-var structureTypesEnum = {"storyPrompt":1};
+var structureTypesEnum = {"storyPrompt":1,"characterPrompt":2};
 
 function getTitle(){
     var possibleTags = [emojiTags.objects, emojiTags.animals, emojiTags.creatures, emojiTags.plants];
@@ -132,6 +116,76 @@ function getRandomlyGeneratedStoryPrompt(){
     return storyPromptText;
 }
 
+function getAppearance(){
+    var possibleTags = [emojiTags.animals, emojiTags.creatures, emojiTags.humans];
+    var tag1 = common.randomItemPicker(possibleTags);
+
+    return tag1;
+}
+
+function getCharArc(){
+    return emojiTags.emotions + " -> " + emojiTags.emotions + " -> " + emojiTags.emotions + " -> " + emojiTags.emotions + " -> ";
+}
+
+function getOccupationOrHobby(){
+    var possibleTags = [emojiTags.objects, emojiTags.sportsAndActivities];
+    var tag1 = common.randomItemPicker(possibleTags);
+    var tag2 = common.randomItemPicker(possibleTags);
+
+    return tag1 + " " + tag2;
+}
+
+function getFear(){
+    var possibleTags = [emojiTags.objects, emojiTags.animals, emojiTags.creatures, emojiTags.transportation, emojiTags.weather];
+    var tag1 = common.randomItemPicker(possibleTags);
+
+    return tag1;
+}
+
+function getFood(){
+    var possibleTags = [emojiTags.food, emojiTags.drinks];
+    var tag1 = common.randomItemPicker(possibleTags);
+
+    return tag1;
+}
+
+function getRandomlyGeneratedCharacterPrompt(){
+    var appearance = getAppearance();
+    var charArc = getCharArc();
+    var occuHobby = getOccupationOrHobby();
+
+    var charPromptText = "Character Prompt!" + 
+    "\n============" + 
+    "\nAppearance: " + appearance
+    "\n\nCharacter Arc:" +
+    "\n" + charArc + 
+    "\n\nOccupation/Hobby:" + 
+    "\n" + occuHobby;
+
+    if(common.coinFlip()){
+        var fear = getFear();
+        charPromptText = charPromptText +
+        "\n\nBiggest Fear:" +
+        "\n" + fear;
+    }
+
+    if(common.coinFlip()){
+        var food = getFood();
+        charPromptText = charPromptText +
+        "\n\nFavourite Food:" +
+        "\n" + food;
+    }
+
+    if(common.coinFlip()){
+        var appearance = getAppearance();
+        charPromptText = charPromptText +
+        "\n\nArch Enemy:" +
+        "\n" + appearance;
+    }
+
+    return charPromptText;
+}
+
 function getRandomlyGeneratedStructure(){
     var structureTypesArray = Object.values(structureTypesEnum);
     var chosenStructureType = common.randomItemPicker(structureTypesArray);
@@ -140,6 +194,8 @@ function getRandomlyGeneratedStructure(){
         case structureTypesEnum.storyPrompt:
         generatedStructure = getRandomlyGeneratedStoryPrompt();
         break;
+        case structureTypesEnum.characterPrompt:
+        generatedStructure = getRandomlyGeneratedCharacterPrompt();
         default:
         generatedStructure = getRandomlyGeneratedStoryPrompt();
     }
