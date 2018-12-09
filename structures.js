@@ -20,17 +20,20 @@ var StoryPrompt1 = {
 var structureTypesEnum = {"storyPrompt":1};
 
 function getTitle(){
+    var possibleTags = [emojiTags.objects, emojiTags.animals, emojiTags.creatures, emojiTags.plants];
+    var tag1 = common.randomItemPicker(possibleTags);
+
     var titleFormats = [
-        "\"The " + emojiTags.objects + " of the " + emojiTags.locations + "\"",
-        "\"The " + emojiTags.objects + " of " + emojiTags.countryFlags + "\"",
-        "\"The " + emojiTags.animals + "s of the " + emojiTags.locations + "\"",
-        "\"The " + emojiTags.animals + "s of " + emojiTags.countryFlags + "\"",
-        "\"The " + emojiTags.plants + "s of the " + emojiTags.locations + "\"",
-        "\"The " + emojiTags.plants + "s of " + emojiTags.countryFlags + "\"",
-        "\"The " + emojiTags.objects + "\"",
-        "\"" + emojiTags.humans + "'s " + emojiTags.objects + "\"",
-        "\"" + emojiTags.humans + "'s " + emojiTags.animals + "\"",
-        "\"" + emojiTags.humans + "'s " + emojiTags.plants + "\"",
+        "\"The " + tag1 + " of the " + emojiTags.locations + "\"",
+        "\"The " + tag1 + " of " + emojiTags.countryFlags + "\"",
+        "\"The " + tag1 + "s of the " + emojiTags.locations + "\"",
+        "\"The " + tag1 + "s of " + emojiTags.countryFlags + "\"",
+        "\"The " + tag1 + "s of the " + emojiTags.locations + "\"",
+        "\"The " + tag1 + "s of " + emojiTags.countryFlags + "\"",
+        "\"The " + tag1 + "\"",
+        "\"" + emojiTags.humans + "'s " + tag1 + "\"",
+        "\"" + emojiTags.humans + "'s " + tag1 + "\"",
+        "\"" + emojiTags.humans + "'s " + tag1 + "\"",
     ];
     
     var chosenTitleFormat = common.randomItemPicker(titleFormats);
@@ -126,7 +129,7 @@ function getRandomlyGeneratedStoryPrompt(){
         "\n" + plotTwist;
     }
 
-    return StoryPrompt1;
+    return storyPromptText;
 }
 
 function getRandomlyGeneratedStructure(){

@@ -116,7 +116,7 @@ function getUniqueEmoji(textToAnalyse, tagToReplace){
 }
 
 function generateTweetText(structure){
-    var tweetText = structure.text;
+    var tweetText = structure;
     var tags = Object.values(emojiTags);
 
     tags.forEach(tag => {
