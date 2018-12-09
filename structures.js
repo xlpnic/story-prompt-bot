@@ -19,7 +19,44 @@ var StoryPrompt1 = {
 
 var structureTypesEnum = {"storyPrompt":1};
 
+function getTitle(){
+    var titleFormats = [
+        "\"The " + emojiTags.objects + " of the " + emojiTags.locations + "\"",
+        "\"The " + emojiTags.objects + " of " + emojiTags.countryFlags + "\"",
+        "\"The " + emojiTags.animals + "s of the " + emojiTags.locations + "\"",
+        "\"The " + emojiTags.animals + "s of " + emojiTags.countryFlags + "\"",
+        "\"The " + emojiTags.plants + "s of the " + emojiTags.locations + "\"",
+        "\"The " + emojiTags.plants + "s of " + emojiTags.countryFlags + "\"",
+        "\"The " + emojiTags.objects + "\"",
+        "\"" + emojiTags.humans + "'s " + emojiTags.objects + "\"",
+        "\"" + emojiTags.humans + "'s " + emojiTags.animals + "\"",
+        "\"" + emojiTags.humans + "'s " + emojiTags.plants + "\"",
+    ];
+    
+    var chosenTitleFormat = common.randomItemPicker(titleFormats);
+
+    return chosenTitleFormat;
+}
+
+function getCharacters(){
+    var characterFormats = [
+        emojiTags.humans + " " + emojiTags.humans + " " + emojiTags.humans,
+    ];
+
+    var chosenCharacterFormat = common.randomItemPicker(characterFormats);
+
+    return chosenCharacterFormat;
+}
+
 function getRandomlyGeneratedStoryPrompt(){
+    var title = getTitle();
+    var characters = getCharacters();
+    var storyPromptText = "Story Prompt!" + 
+    "\n==========" + 
+    "\nTitle: " + title +
+    "\n\nCharacters: " +
+    "\n" + characters;
+
     return StoryPrompt1;
 }
 

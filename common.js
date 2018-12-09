@@ -5,4 +5,9 @@ function randomItemPicker(itemArray){
     return chosenItem;
 }
 
+function coinFlip(){
+    var randomResult = Math.floor(Math.random() * Math.floor(2));
+    return randomResult == 0;
+}
+
 module.exports.randomItemPicker = randomItemPicker;
