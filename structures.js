@@ -32,6 +32,7 @@ function getCharacters(){
     var tag3 = common.randomItemPicker(possibleTags);
 
     var characterFormats = [
+        emojiTags.humans + " " + emojiTags.humans + " " + emojiTags.humans,
         tag1 + " " + tag2 + " " + tag3,
     ];
 
@@ -47,7 +48,8 @@ function getPlotTwist(){
 
     var plotTwistFormats = [
         "The " + tag1 + " was a " + tag2 + " all along!",
-        "The " + tag1 + " was in " + emojiTags.locations + " all along!"
+        "The " + tag1 + " was in " + emojiTags.locations + " all along!",
+        emojiTags.humans + " was secretly " + emojiTags.humans + " in disguise!"
     ];
 
     var chosenPlotTwistFormat = common.randomItemPicker(plotTwistFormats);
