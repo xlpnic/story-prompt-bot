@@ -62,3 +62,4 @@ Location
 Weather
 Time Of Day
 Ruler
+Main form of transportation

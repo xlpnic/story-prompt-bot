@@ -11,3 +11,4 @@ function coinFlip(){
 }
 
 module.exports.randomItemPicker = randomItemPicker;
+module.exports.coinFlip = coinFlip;
