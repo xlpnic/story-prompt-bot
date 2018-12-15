@@ -63,3 +63,19 @@ Weather
 Time Of Day
 Ruler
 Main form of transportation
+
+
+=================
+
+Scene Prompt!
+
+Scene Type: Conflict/Battle/Violence/Fight Scene
+Protagonist(s)
+Weapon(s)
+Antagonist(s)
+Weapon(s)
+Setting
+
+Scene Type: Romance
+Lovers
+Setting

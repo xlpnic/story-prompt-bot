@@ -130,7 +130,7 @@ function generateTweetText(structure){
 }
 
 function constructTweet(){
-    var chosenTweetStructure = structures.getRandomlyGeneratedStructure();
+    var chosenTweetStructure = structures.getRandomStructure();
     var tweetText = generateTweetText(chosenTweetStructure);
     var constructedTweet = { status: tweetText }
     return constructedTweet;
@@ -145,7 +145,7 @@ function run(){
         var tweet = constructTweet();
         
         var proposedTweetLength = tweet.status.length;
-        if(proposedTweetLength > 280){
+        if(proposedTweetLength > common.MaxNumberOfCharacters){
             throw "Tweet would be too long! Tweet length: " + proposedTweetLength;
         }
 

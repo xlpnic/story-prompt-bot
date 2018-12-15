@@ -10,5 +10,8 @@ function coinFlip(){
     return randomResult == 0;
 }
 
+var MaxNumberOfCharacters = 280;
+
 module.exports.randomItemPicker = randomItemPicker;
 module.exports.coinFlip = coinFlip;
+module.exports.MaxNumberOfCharacters = MaxNumberOfCharacters;
