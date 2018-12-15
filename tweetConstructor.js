@@ -95,16 +95,11 @@ function getEmoji(tagToReplace){
 }
 
 function getUniqueEmoji(textToAnalyse, tagToReplace){
-    var arrayToUse = getArrayForTag(tagToReplace);
-
     var uniqueEmojiFound = false;
     var chosenEmoji = "";
 
     while(!uniqueEmojiFound){
-        chosenEmoji = common.randomItemPicker(arrayToUse);
-        if (chosenEmoji.includes(emojiTags.varationAvailable)){
-            chosenEmoji = getEmojiVariation(chosenEmoji);
-        }
+        chosenEmoji = getEmoji(tagToReplace);
 
         if (!textToAnalyse.includes(chosenEmoji)){
             uniqueEmojiFound = true;
