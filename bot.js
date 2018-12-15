@@ -5,6 +5,8 @@ var structures = require('./structures');
 var emojiTags = require('./emojiTags');
 var common = require('./common');
 
+var emojisMustBeUnique = false;
+
 var T = new Twit(config);
 
 function tweetResponse(err, data, response) {
@@ -95,6 +97,18 @@ function getEmojiVariation(emojiWithVariations){
     return chosenEmojiVariation;
 }
 
+function getEmoji(tagToReplace){
+    var arrayToUse = getArrayForTag(tagToReplace);
+
+    var chosenEmoji = common.randomItemPicker(arrayToUse);
+
+    if (chosenEmoji.includes(emojiTags.varationAvailable)){
+        chosenEmoji = getEmojiVariation(chosenEmoji);
+    }
+
+    return chosenEmoji;
+}
+
 function getUniqueEmoji(textToAnalyse, tagToReplace){
     var arrayToUse = getArrayForTag(tagToReplace);
 
@@ -119,12 +133,22 @@ function generateTweetText(structure){
     var tweetText = structure;
     var tags = Object.values(emojiTags);
 
-    tags.forEach(tag => {
-        while(tweetText.includes(tag)){
-            var uniqueEmoji = getUniqueEmoji(tweetText, tag);
-            tweetText = tweetText.replace(tag, uniqueEmoji);
-        }
-    });
+    if(emojisMustBeUnique){
+        tags.forEach(tag => {
+            while(tweetText.includes(tag)){
+                var uniqueEmoji = getUniqueEmoji(tweetText, tag);
+                tweetText = tweetText.replace(tag, uniqueEmoji);
+            }
+        });
+    }
+    else{
+        tags.forEach(tag => {
+            while(tweetText.includes(tag)){
+                var emoji = getEmoji(tag);
+                tweetText = tweetText.replace(tag, emoji);
+            }
+        });
+    }
 
     return tweetText;
 }
