@@ -46,7 +46,7 @@ function getRandomSettingPrompt(){
     var ruler = getRuler();
 
     var setingPromptText = "Setting Prompt!" + 
-    "\n============" + 
+    "\n" + common.Underline +
     "\n" + location + 
     "\n\n" + weather + 
     "\n\n" + timeOfDay + 

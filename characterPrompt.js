@@ -44,7 +44,7 @@ function getFear(){
     var possibleTags = [emojiTags.objects, emojiTags.animals, emojiTags.creatures, emojiTags.transportation, emojiTags.weather];
     var fear = common.randomItemPicker(possibleTags);
 
-    fear = "Biggest Fear :" + fear;
+    fear = "Biggest Fear: " + fear;
 
     return fear;
 }
@@ -69,21 +69,46 @@ function getClosestFriend(){
 
 function getSecretHandshake(){
     var shake = emojiTags.actionsAndBodyParts + "-" + emojiTags.actionsAndBodyParts + "-" + emojiTags.actionsAndBodyParts + "-" + emojiTags.actionsAndBodyParts;
+    
     shake = "Secret Handshake:" +
     "\n" + shake;
+
     return shake;
+}
+
+function getLoveInterest(){
+    var possibleTags = [emojiTags.humans, emojiTags.animals, emojiTags.creatures];
+    var lover = common.randomItemPicker(possibleTags);
+
+    lover = "Love Interest: " + lover;
+
+    return lover;
 }
 
 function getRandomCharacterPrompt(){
     var appearance = getMainCharacterAppearance();
     var charArc = getCharArc();
-    var occuHobby = getOccupationOrHobby();
 
     var charPromptText = "Character Prompt!" + 
-    "\n============" + 
+    "\n" + common.Underline +
     "\n" + appearance +
-    "\n\n" + charArc + 
-    "\n\n" + occuHobby;
+    "\n\n" + charArc;
+    
+    if(common.coinFlip()){
+        var occuHobby = getOccupationOrHobby();
+        proposedText = charPromptText + "\n\n" + occuHobby;
+        if (!common.tweetIsTooLong(proposedText)){
+            charPromptText = proposedText;
+        }
+    }
+
+    if(common.coinFlip()){
+        var appearance = getAntagonistAppearance();
+        proposedText = charPromptText + "\n\n" + appearance;
+        if (!common.tweetIsTooLong(proposedText)){
+            charPromptText = proposedText;
+        }
+    }
 
     if(common.coinFlip()){
         var fear = getFear();
@@ -102,14 +127,6 @@ function getRandomCharacterPrompt(){
     }
 
     if(common.coinFlip()){
-        var appearance = getAntagonistAppearance();
-        proposedText = charPromptText + "\n\n" + appearance;
-        if (!common.tweetIsTooLong(proposedText)){
-            charPromptText = proposedText;
-        }
-    }
-
-    if(common.coinFlip()){
         var friend = getClosestFriend();
         proposedText = charPromptText + "\n\n" + friend;
         if (!common.tweetIsTooLong(proposedText)){
@@ -122,6 +139,14 @@ function getRandomCharacterPrompt(){
             if (!common.tweetIsTooLong(proposedText)){
                 charPromptText = proposedText;
             }
+        }
+    }
+
+    if(common.coinFlip()){
+        var appearance = getLoveInterest();
+        proposedText = charPromptText + "\n\n" + appearance;
+        if (!common.tweetIsTooLong(proposedText)){
+            charPromptText = proposedText;
         }
     }
 

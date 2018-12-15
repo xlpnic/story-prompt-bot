@@ -7,7 +7,8 @@ var T = new Twit(config);
 
 function tweetResponse(err, data, response) {
     if (err){
-        console.log("Something went wrong whilst trying to tweet!");
+        console.log("Something went wrong whilst trying to tweet!");        
+        console.log("Response returned from Twitter: " + response);
         console.log("Error returned from Twitter: " + err);
     }
     else{

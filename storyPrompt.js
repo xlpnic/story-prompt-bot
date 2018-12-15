@@ -56,16 +56,16 @@ function getPlotTwist(){
 
     var chosenPlotTwistFormat = common.randomItemPicker(plotTwistFormats);
 
-    chosenPlotTwistFormat = "\n\nPlot Twist:" +
+    chosenPlotTwistFormat = "Plot Twist:" +
     "\n" + chosenPlotTwistFormat;
 
     return chosenPlotTwistFormat;
 }
 
 function getClimacticScene(){
-    var climacticScene = emojiTags.objects + ", " + emojiTags.locations + ", " + emojiTags.emotions;
+    var climacticScene = emojiTags.objects + "! " + emojiTags.locations + "! " + emojiTags.emotions + "!";
 
-    climacticScene = "\n\nClimactic Scene:" +
+    climacticScene = "Climactic Scene:" +
     "\n" + climacticScene;
     
     return climacticScene;
@@ -95,7 +95,7 @@ function getPlot(){
 }
 
 function getMacguffin(){
-    var macguffin = "\n\nMacGuffin:" +
+    var macguffin = "MacGuffin:" +
     "\n" + emojiTags.objects;
 
     return macguffin;
@@ -107,7 +107,7 @@ function getRandomStoryPrompt(){
     var plot = getPlot();
 
     var storyPromptText = "Story Prompt!" + 
-    "\n============" + 
+    "\n" + common.Underline +
     "\n" + title +
     "\n\n" + characters +
     "\n\n" + plot;

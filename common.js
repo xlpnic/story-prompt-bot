@@ -1,4 +1,5 @@
 var MaxNumberOfCharacters = 280;
+var Underline = "============";
 
 function randomItemPicker(itemArray){
     var numOfItems = itemArray.length;
@@ -25,3 +26,4 @@ module.exports.randomItemPicker = randomItemPicker;
 module.exports.coinFlip = coinFlip;
 module.exports.MaxNumberOfCharacters = MaxNumberOfCharacters;
 module.exports.tweetIsTooLong = tweetIsTooLong;
+module.exports.Underline = Underline;
