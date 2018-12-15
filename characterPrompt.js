@@ -87,26 +87,41 @@ function getRandomCharacterPrompt(){
 
     if(common.coinFlip()){
         var fear = getFear();
-        charPromptText = charPromptText + "\n\n" + fear;
+        proposedText = charPromptText + "\n\n" + fear;
+        if (!common.tweetIsTooLong(proposedText)){
+            charPromptText = proposedText;
+        }
     }
 
     if(common.coinFlip()){
         var food = getFood();
-        charPromptText = charPromptText + "\n\n" + food;
+        proposedText = charPromptText + "\n\n" + food;
+        if (!common.tweetIsTooLong(proposedText)){
+            charPromptText = proposedText;
+        }
     }
 
     if(common.coinFlip()){
         var appearance = getAntagonistAppearance();
-        charPromptText = charPromptText + "\n\n" + appearance;
+        proposedText = charPromptText + "\n\n" + appearance;
+        if (!common.tweetIsTooLong(proposedText)){
+            charPromptText = proposedText;
+        }
     }
 
     if(common.coinFlip()){
         var friend = getClosestFriend();
-        charPromptText = charPromptText + "\n\n" + friend;
+        proposedText = charPromptText + "\n\n" + friend;
+        if (!common.tweetIsTooLong(proposedText)){
+            charPromptText = proposedText;
+        }
 
         if(common.coinFlip()){
             var shake = getSecretHandshake();
-            charPromptText = charPromptText + "\n\n" + shake;
+            proposedText = charPromptText + "\n\n" + shake;
+            if (!common.tweetIsTooLong(proposedText)){
+                charPromptText = proposedText;
+            }
         }
     }
 

@@ -24,8 +24,7 @@ function run(){
         // Or twitter gets angry.
         var tweet = tweetConstructor.constructTweet();
         
-        var proposedTweetLength = tweet.status.length;
-        if(proposedTweetLength > common.MaxNumberOfCharacters){
+        if(common.tweetIsTooLong(tweet)){
             throw "Tweet would be too long! Tweet length: " + proposedTweetLength;
         }
 

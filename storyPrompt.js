@@ -114,17 +114,26 @@ function getRandomStoryPrompt(){
 
     if(common.coinFlip()){
         var climacticScene = getClimacticScene();
-        storyPromptText = storyPromptText + "\n\n" + climacticScene;
+        var proposedText = storyPromptText + "\n\n" + climacticScene;
+        if (!common.tweetIsTooLong(proposedText)){
+            storyPromptText = proposedText;
+        }
     }
 
     if(common.coinFlip()){
         var macguffin = getMacguffin();
-        storyPromptText = storyPromptText + "\n\n" + macguffin;
+        proposedText = storyPromptText + "\n\n" + macguffin;
+        if (!common.tweetIsTooLong(proposedText)){
+            storyPromptText = proposedText;
+        }
     }
 
     if(common.coinFlip()){
         var plotTwist = getPlotTwist();
-        storyPromptText = storyPromptText + "\n\n" + plotTwist;
+        proposedText = storyPromptText + "\n\n" + plotTwist;
+        if (!common.tweetIsTooLong(proposedText)){
+            storyPromptText = proposedText;
+        }
     }
 
     return storyPromptText;
