@@ -105,9 +105,9 @@ function getRandomStoryPrompt(){
     var title = getTitle();
     var characters = getCharacters();
     var plot = getPlot();
-    
+
     var storyPromptText = "Story Prompt!" + 
-    "\n==========" + 
+    "\n============" + 
     "\n" + title +
     "\n\n" + characters +
     "\n\n" + plot;
