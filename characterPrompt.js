@@ -103,8 +103,8 @@ function getRandomCharacterPrompt(){
     }
 
     if(common.coinFlip()){
-        var appearance = getAntagonistAppearance();
-        proposedText = charPromptText + "\n\n" + appearance;
+        var antagonist = getAntagonistAppearance();
+        proposedText = charPromptText + "\n\n" + antagonist;
         if (!common.tweetIsTooLong(proposedText)){
             charPromptText = proposedText;
         }
@@ -143,8 +143,8 @@ function getRandomCharacterPrompt(){
     }
 
     if(common.coinFlip()){
-        var appearance = getLoveInterest();
-        proposedText = charPromptText + "\n\n" + appearance;
+        var lover = getLoveInterest();
+        proposedText = charPromptText + "\n\n" + lover;
         if (!common.tweetIsTooLong(proposedText)){
             charPromptText = proposedText;
         }
