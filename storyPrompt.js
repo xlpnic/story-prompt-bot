@@ -82,12 +82,10 @@ function getPlot(){
     var tag6 = common.randomItemPicker(possibleTags2);
 
     var plotFormats = [
-        "Plot - Act 1:" +
-        "\n" + tag1 + ", " + tag4 + ", " + emojiTags.emotions +  
-        "\n\nPlot - Act 2:" + 
-        "\n" + tag2 + ", " + tag5 + ", " + emojiTags.emotions + 
-        "\n\nPlot - Act 3:" + 
-        "\n" + tag3 + ", " + tag6 + ", " + emojiTags.emotions,
+        "Plot:" +
+        "\nAct 1 - " + tag1 + ", " + tag4 + ", " + emojiTags.emotions +   
+        "\nAct 2 - " + tag2 + ", " + tag5 + ", " + emojiTags.emotions + 
+        "\nAct 3 - " + tag3 + ", " + tag6 + ", " + emojiTags.emotions,
     ];
 
     var chosenPlotFormat = common.randomItemPicker(plotFormats);
