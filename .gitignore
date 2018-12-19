@@ -5,3 +5,4 @@ node_modules/*
 *.nic.txt
 *.nic.xml
 *.nic.js
+*.zip
