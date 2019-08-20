@@ -86,7 +86,7 @@ function getHerosJourneyPrompt(){
     "\n" + "1)Ordinary World: " + location + 
     "\n" + "2)Call 2 Adventure: " + getCallToAdventure() + 
     "\n" + "3)Refusal: " + getRefusal() + 
-    "\n" + "4)Meeting the Mentor:" + getCharacter() + 
+    "\n" + "4)Meeting the Mentor: " + getCharacter() + 
     "\n" + "5)Crossing Threshold: " + getThreshold() + 
     "\n" + "6)Tests/Allies/Enemies: " + getTests() + 
     "\n" + "7)Approach: " + getApproach() + 
