@@ -1,4 +1,7 @@
-To run from the command line, open a PowerShell window in the repo and type...
+To write a tweet to the console, open a PowerShell window in the repo and type...
 
-node .\consoleRunner.js
+    node .\consoleRunner-local.js
 
+To send a new tweet to twitter, open a PowerShell window in the repo and type...
+
+    node .\consoleRunner-twitter.js
