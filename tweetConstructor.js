@@ -44,12 +44,18 @@ function getArrayForTag(emojiTag){
             break;
         case emojiTags.lovehearts:
             arrayToUse = emojis.lovehearts;
+            break; 
+        case emojiTags.negativeEmotions:
+            arrayToUse = emojis.negativeEmotions;
             break;            
         case emojiTags.objects:
             arrayToUse = emojis.objects;
             break;
         case emojiTags.plants:
             arrayToUse = emojis.plants;
+            break;
+        case emojiTags.positiveEmotions:
+            arrayToUse = emojis.positiveEmotions;
             break;
         case emojiTags.sportsAndActivities:
             arrayToUse = emojis.sportsAndActivities;

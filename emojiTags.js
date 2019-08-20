@@ -1,6 +1,8 @@
 module.exports = {
     varationAvailable: "<VAR>",
     emotions: "<EMO>",
+    negativeEmotions: "<NEM>",
+    positiveEmotions: "<PEM>",
     lovehearts: "<LOV>",
     humans: "<HUM>",
     groupsOfPeople: "<GRO>",
